@@ -15,7 +15,7 @@ function isOnSale (price) {
 }
 
 function checkIfAddonIsOnSale (url) {
-    return isOnSale(findPriceOjbect(getHtml(url)));
+    return isOnSale(findPriceObject(getHtml(url)));
 }
 
 
