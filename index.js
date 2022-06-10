@@ -20,7 +20,14 @@ function isOnSale (priceObject) {
         return false;
     }
 
-    return true;
+    //console.log(Object.keys(priceObject));
+    //console.log(priceObject.attribs);
+
+    const price = priceObject.children[0].data;
+
+    console.log(`MD-11 price: ${price}`);
+
+    return price !== "$83.95";
 }
 
 function checkIfAddonIsOnSale (url) {
