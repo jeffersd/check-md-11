@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
-    "parse5": "^7.0.0"
+    "css-select": "^5.1.0",
+    "htmlparser2": "^8.0.1"
   }
 }
