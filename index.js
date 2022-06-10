@@ -35,10 +35,10 @@ async function checkIfAddonIsOnSale (url) {
 
 async function main () {
     if (await checkIfAddonIsOnSale(MD_11_URL)) {
-        console.log("** MD-11 is on sale **");
-    } else {
-        console.log("XX MD-11 is NOT on sale XX");
+        return console.log("** MD-11 is on sale **");
     }
+
+    return console.log("XX MD-11 is NOT on sale XX");
 }
 
 
