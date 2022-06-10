@@ -5,7 +5,11 @@ const axios = require("axios"),
 
 
 function getHtml (url) {
-    return "<html><p>paragraph</p><div><span id=price>$100.00</span></div>some html</html>";
+    return axios.get(url).then((result) => {
+        return result.data;
+    });
+
+    //return "<html><p>paragraph</p><div><span id=price>$100.00</span></div>some html</html>";
 }
 
 function findPriceObject (html) {
@@ -30,9 +34,17 @@ function isOnSale (priceObject) {
     return price !== "$83.95";
 }
 
-function checkIfAddonIsOnSale (url) {
-    return isOnSale(findPriceObject(getHtml(url)));
+async function checkIfAddonIsOnSale (url) {
+    return await isOnSale(findPriceObject(await getHtml(url)));
+}
+
+async function main () {
+    if (await checkIfAddonIsOnSale(MD_11_URL)) {
+        console.log("** MD-11 is on sale **");
+    } else {
+        console.log("XX MD-11 is NOT on sale XX");
+    }
 }
 
 
-console.log(`addon is on sale?: ${checkIfAddonIsOnSale(MD_11_URL)}`);
+main();
