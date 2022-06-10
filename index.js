@@ -8,8 +8,6 @@ function getHtml (url) {
     return axios.get(url).then((result) => {
         return result.data;
     });
-
-    //return "<html><p>paragraph</p><div><span id=price>$100.00</span></div>some html</html>";
 }
 
 function findPriceObject (html) {
@@ -23,9 +21,6 @@ function isOnSale (priceObject) {
     if (!priceObject) {
         return false;
     }
-
-    //console.log(Object.keys(priceObject));
-    //console.log(priceObject.attribs);
 
     const price = priceObject.children[0].data;
 
