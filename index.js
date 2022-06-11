@@ -18,7 +18,9 @@ function findPriceObject (html) {
 }
 
 function getPrice (priceObject) {
-    return priceObject.children[0].data;
+    return priceObject.children.map((child) => {
+        return child.data;
+    });
 }
 
 async function checkIfAddonIsOnSale (url) {
@@ -26,7 +28,7 @@ async function checkIfAddonIsOnSale (url) {
 }
 
 async function main () {
-    console.log(`${Date.now()} ${await checkIfAddonIsOnSale(MD_11_URL)}`);
+    return console.log(`${Date.now()} ${await checkIfAddonIsOnSale(MD_11_URL)}`);
 }
 
 
