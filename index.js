@@ -17,28 +17,16 @@ function findPriceObject (html) {
     return priceObject;
 }
 
-function isOnSale (priceObject) {
-    if (!priceObject) {
-        return false;
-    }
-
-    const price = priceObject.children[0].data;
-
-    console.log(`MD-11 price: ${price}`);
-
-    return price !== "$83.95";
+function getPrice (priceObject) {
+    return priceObject.children[0].data;
 }
 
 async function checkIfAddonIsOnSale (url) {
-    return await isOnSale(findPriceObject(await getHtml(url)));
+    return getPrice(findPriceObject(await getHtml(url)));
 }
 
 async function main () {
-    if (await checkIfAddonIsOnSale(MD_11_URL)) {
-        return console.log("** MD-11 is on sale **");
-    }
-
-    return console.log("XX MD-11 is NOT on sale XX");
+    console.log(`${Date.now()} ${await checkIfAddonIsOnSale(MD_11_URL)}`);
 }
 
 
