@@ -28,7 +28,14 @@ async function checkIfAddonIsOnSale (url) {
 }
 
 async function main () {
-    return console.log(`${Date.now()} ${await checkIfAddonIsOnSale(MD_11_URL)}`);
+    let message = "";
+
+    try {
+        message = await checkIfAddonIsOnSale(MD_11_URL);
+    } catch (error) {
+        message = `failed to check price: ${error}`
+    }
+    return console.log(`${Date.now()} ${message}`);
 }
 
 
