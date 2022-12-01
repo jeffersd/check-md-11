@@ -1,7 +1,8 @@
 const axios = require("axios"),
     htmlparser2 = require("htmlparser2"),
     cssSelect = require("css-select"),
-    STORE_URL = "https://store.x-plane.org/732-TwinJet-V3-Pro_p_739.html";
+    fs = require("fs"),
+    urlsFilePath = "./urls.txt";
 
 
 function getHtml (url) {
@@ -51,11 +52,19 @@ async function main () {
     let message = "";
 
     try {
-        message = await checkIfAddonIsOnSale(STORE_URL);
+        const urls = fs.readFileSync(urlsFilePath, "utf8").split("\n");
+
+        urls.pop();
+        urls.forEach((singleUrl) => {
+            return checkIfAddonIsOnSale(singleUrl).then((message) => {
+                return console.log(`${Date.now()} ${message}`);
+            }).catch((getUrlError) => {
+                console.log(`${Date.now()} checkIfAddonIsOnSale() failed - url: ${singleUrl} - error: ${getUrlError}`);
+            });
+        });
     } catch (error) {
-        message = `failed to check price: ${error}`
+        console.log(`${Date.now()} failed to check price: ${error}`);
     }
-    return console.log(`${Date.now()} ${message}`);
 }
 
 
