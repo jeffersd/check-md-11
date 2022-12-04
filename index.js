@@ -2,7 +2,7 @@ const axios = require("axios"),
     htmlparser2 = require("htmlparser2"),
     cssSelect = require("css-select"),
     fs = require("fs"),
-    urlsFilePath = "./urls.txt";
+    urlsFilePath = process.env.CHECK_MD11_PRICE_URLS_FILE_PATH;
 
 
 function getHtml (url) {
