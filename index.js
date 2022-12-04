@@ -5,6 +5,10 @@ const axios = require("axios"),
     urlsFilePath = process.env.CHECK_MD11_PRICE_URLS_FILE_PATH;
 
 
+function log (message) {
+    console.log(`${Date.now()} ${message}`);
+}
+
 function getHtml (url) {
     return axios.get(url).then((result) => {
         return result.data;
@@ -57,13 +61,13 @@ async function main () {
         urls.pop();
         urls.forEach((singleUrl) => {
             return checkIfAddonIsOnSale(singleUrl).then((message) => {
-                return console.log(`${Date.now()} ${message}`);
+                return log(message);
             }).catch((getUrlError) => {
-                console.log(`${Date.now()} checkIfAddonIsOnSale() failed - url: ${singleUrl} - error: ${getUrlError}`);
+                return log(`checkIfAddonIsOnSale() failed - url: ${singleUrl} - error: ${getUrlError}`);
             });
         });
     } catch (error) {
-        console.log(`${Date.now()} failed to check price: ${error}`);
+        log(error);
     }
 }
 
