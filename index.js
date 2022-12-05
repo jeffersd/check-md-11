@@ -2,7 +2,7 @@ const axios = require("axios"),
     htmlparser2 = require("htmlparser2"),
     cssSelect = require("css-select"),
     fs = require("fs"),
-    urlsFilePath = process.env.CHECK_MD11_PRICE_URLS_FILE_PATH;
+    urlsFilePath = "/Users/dillonjeffers/scripts/check-md-11/urls.txt";
 
 
 function log (message) {
