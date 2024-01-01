@@ -5,6 +5,8 @@ Simple sysctl process to monitor the price of an X-Plane addon and log if it is 
 
 ## Usage Info
 
+Looks for a list of urls in `urls.txt` in the root of the project's directory.
+
 Main script location:
 
  * `~/Library/scripts/check-md-11.js`
