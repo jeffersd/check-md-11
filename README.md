@@ -1,6 +1,6 @@
 # check-md-11
 
-Simple sysctl process to monitor the price of an X-Plane addon and log if it is on sale.
+Simple launchctl process to monitor the price of an X-Plane addon and log if it is on sale.
 
 
 ## Usage Info
