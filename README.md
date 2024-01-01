@@ -13,7 +13,7 @@ Main script location:
 
 IOS Service File Location:
 
- * `/Users/dillonjeffers/Library/LaunchAgents/com.dillonjeffers.checkmd11.plist`
+ * `$HOME/Library/LaunchAgents/com.<user-name>.checkmd11.plist`
 
 
 ## X-Plane Store
